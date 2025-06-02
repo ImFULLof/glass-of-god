@@ -14,7 +14,6 @@ albedo_color = Color(0.394204, 0.617327, 0.834536, 1)
 albedo_color = Color(0.0378547, 0.66662, 1.92523e-07, 1)
 
 [node name="world" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313048, -0.11475, -0.176149)
 script = ExtResource("1_fj7yv")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
