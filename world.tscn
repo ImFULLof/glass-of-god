@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyae3enmg0p80"]
+[gd_scene load_steps=16 format=3 uid="uid://dyae3enmg0p80"]
 
 [ext_resource type="Script" uid="uid://5axntv214q0p" path="res://player.gd" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://bv5ig84u8m4c7" path="res://world.gd" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bhyg53ie44uoi" path="res://guy.gltf" id="3_aqk2v"]
-[ext_resource type="Texture2D" uid="uid://bhr46b5ahnu4i" path="res://lefthand.png" id="4_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://ddqdxquucjvll" path="res://barrel.gltf" id="5_036b0"]
-[ext_resource type="Texture2D" uid="uid://d2ifqwilccffx" path="res://righthand.png" id="5_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://dibgbykpybicy" path="res://hand.png" id="5_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://xyqldmou434d" path="res://im-the-same-height.gltf" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://dwa7u4bejflmh" path="res://playersteve.gltf" id="8_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://c7uej3kiljxwf" path="res://full-cube.gltf" id="8_wse8f"]
@@ -87,13 +86,11 @@ texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 98.0
-offset_top = -234.5
-offset_right = 354.0
-offset_bottom = 21.5
+offset_top = -256.0
+offset_right = 256.0
 grow_vertical = 0
-rotation = 0.616101
-texture = ExtResource("4_pkg7o")
+texture = ExtResource("5_gbfbk")
+flip_h = true
 
 [node name="RightHand" type="TextureRect" parent="SubViewportContainer/SubViewport/player/UI_PlayerArm"]
 texture_filter = 1
@@ -102,13 +99,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -293.0
-offset_top = -90.5
-offset_right = -37.0
-offset_bottom = 165.5
+offset_left = -256.0
+offset_top = -256.0
 grow_horizontal = 0
 grow_vertical = 0
-rotation = -0.616343
 texture = ExtResource("5_gbfbk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
