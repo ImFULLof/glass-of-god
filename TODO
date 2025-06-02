@@ -1,1 +1,2 @@
-Test
+- When Falling, gravity is increased until it reaches a certain value, giving 'Jumping / Falling' a more weighty feel.
+- When in the air, 'WASD / Moving' is hugely slowed down, so that you have less control, but still a little so it feels good.
