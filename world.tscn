@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyae3enmg0p80"]
+[gd_scene load_steps=17 format=3 uid="uid://dyae3enmg0p80"]
 
 [ext_resource type="Script" uid="uid://5axntv214q0p" path="res://player.gd" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://bv5ig84u8m4c7" path="res://world.gd" id="1_fj7yv"]
@@ -11,11 +11,28 @@
 [ext_resource type="PackedScene" uid="uid://c7uej3kiljxwf" path="res://full-cube.gltf" id="8_wse8f"]
 [ext_resource type="PackedScene" uid="uid://bfftwxu01sbb0" path="res://jumpable-cupe.gltf" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://b2o4vgyfojyi8" path="res://ramp.gltf" id="11_ic0uy"]
+[ext_resource type="Shader" uid="uid://ctnmi5meo447n" path="res://Outline.gdshader" id="12_k3n1d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ic0uy"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2o6r5"]
+render_priority = 0
+shader = ExtResource("12_k3n1d")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.3
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_70uel"]
+material = SubResource("ShaderMaterial_2o6r5")
+flip_faces = true
+size = Vector2(2, 2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
-albedo_color = Color(0.0392157, 0.666667, 0, 0)
+albedo_color = Color(0.1034, 0.44, 0.066, 1)
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
@@ -53,6 +70,12 @@ shape = SubResource("CapsuleShape3D_ic0uy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 current = true
 
+[node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/player/Head/EyeCamera"]
+transform = Transform3D(1, 0.000319699, -0.00055168, -0.000319852, 1, -0.000284219, 0.000551591, 0.000284391, 1, 0.411554, -1.67122, -0.0158009)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_70uel")
+skeleton = NodePath("../../../..")
+
 [node name="player" parent="SubViewportContainer/SubViewport/player" instance=ExtResource("3_aqk2v")]
 transform = Transform3D(1.00941, 0, 0, 0, 1.00941, 0, 0, 0, 1.00941, 0, -0.169823, 0)
 visible = false
@@ -89,7 +112,13 @@ rotation = -0.616343
 texture = ExtResource("5_gbfbk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.0982812, -0.684046, 0.722787, -0.183126, 0.701469, 0.688771, -0.978164, -0.200054, -0.0563255, 11.637, 5.76442, -6.17973)
+transform = Transform3D(-0.901481, -0.0412205, -0.430852, -0.34757, 0.662164, 0.663878, 0.25793, 0.748224, -0.611255, -5.22747, 2.1107, -4.40065)
+light_energy = 1.235
+light_indirect_energy = 1.646
+light_volumetric_fog_energy = 2.455
+shadow_enabled = true
+directional_shadow_split_1 = 0.221
+sky_mode = 1
 
 [node name="ground" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(5.09987, 0, 0, 0, 0.0278623, 0, 0, 0, 4.20632, 4.36975, 0, 0.777211)
