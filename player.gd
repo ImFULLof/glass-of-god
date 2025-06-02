@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 @export var mouse_sensitivity: float = 0.002
-@export var ACCELERATION: float = 0.125
-@export var DECELEATION: float = 0.35
+@export var ACCELERATION: float = 0.1
+@export var DECELEATION: float = 0.4
 @export var AIR_ACCELERATION: float = 0.05
-@export var AIR_CONTROL_MULTIPLIER: float = 0.6
+@export var AIR_CONTROL_MULTIPLIER: float = 0.5
 @export var gravity: float = 9.8
 @export var fall_multiplier: float = 2.0
 
@@ -12,7 +12,7 @@ extends CharacterBody3D
 @onready var eye_camera: Camera3D = $Head/EyeCamera
 
 const SPEED = 5.0
-const BASE_JUMP_VELOCITY = 4.5
+const BASE_JUMP_VELOCITY = 3.5
 
 var fall_time: float = 0.0
 
